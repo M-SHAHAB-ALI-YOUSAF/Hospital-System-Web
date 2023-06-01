@@ -14,33 +14,33 @@ include('connection.php');
 <!-- CHANGE PASSWORD PHP -->
 <?php
 if (isset($_POST['Reset'])) {
-    $user_email = mysqli_real_escape_string($con, $_POST['email']);
+	$user_email = mysqli_real_escape_string($con, $_POST['email']);
 
-    $user_pass = mysqli_real_escape_string($con, $_POST['newpassword']);
+	$user_pass = mysqli_real_escape_string($con, $_POST['newpassword']);
 
-    $confirmuser_pass = mysqli_real_escape_string($con, $_POST['repassword']);
+	$confirmuser_pass = mysqli_real_escape_string($con, $_POST['repassword']);
 
 
-    $query = $con->prepare("SELECT * FROM login_table WHERE Email = ?");
-    $query->bind_param("s", $user_email);
-    $query->execute();
-    $result = $query->get_result();
+	$query = $con->prepare("SELECT * FROM login_table WHERE Email = ?");
+	$query->bind_param("s", $user_email);
+	$query->execute();
+	$result = $query->get_result();
 
-    if ($result->num_rows != 0) {
+	if ($result->num_rows != 0) {
 
-        if ($user_pass == $confirmuser_pass) {
+		if ($user_pass == $confirmuser_pass) {
 
-            $query = $con->prepare("UPDATE login_table set Password = ? where Email = ?");
-            $query->bind_param("ss", $user_pass, $user_email);
-            $query->execute();
-            $query->close();
-            header("location: forget.php?success=Password Reset");
-        } else {
-            header("location: forget.php?error=Password not matched!");
-        }
-    } else {
-        header("location:forget.php?error=No User Found");
-    }
+			$query = $con->prepare("UPDATE login_table set Password = ? where Email = ?");
+			$query->bind_param("ss", $user_pass, $user_email);
+			$query->execute();
+			$query->close();
+			header("location: forget.php?success=Password Reset");
+		} else {
+			header("location: forget.php?error=Password not matched!");
+		}
+	} else {
+		header("location:forget.php?error=No User Found");
+	}
 }
 
 ?>
@@ -49,27 +49,31 @@ if (isset($_POST['Reset'])) {
 
 <body>
 	<div class="main">
-		<div class="signup" >
+		<div class="signup">
 			<form action="forget.php" method="post">
-				<label for="chk" >Reset Password</label>
-				<?php 
-				if(isset($_GET['error'])){ ?>
-					<p class="error"><?php echo $_GET['error']; ?> </p>
+				<label for="chk">Reset Password</label>
+				<?php
+				if (isset($_GET['error'])) { ?>
+					<p class="error">
+						<?php echo $_GET['error']; ?>
+					</p>
 				<?php }
-				?> 
-				
-				<?php 
-				if(isset($_GET['success'])){ ?>
-					<p class="success"><?php echo $_GET['success']; ?> </p>
+				?>
+
+				<?php
+				if (isset($_GET['success'])) { ?>
+					<p class="success">
+						<?php echo $_GET['success']; ?>
+					</p>
 				<?php }
-				?> 
-				<input type="email" name="email"  placeholder="Enter Email Password" required="">
+				?>
+				<input type="email" name="email" placeholder="Enter Email Password" required="">
 				<input type="password" name="newpassword" placeholder="Enter New Password" required>
-				<input type="password" name="repassword" placeholder="Enter Re Password"  required="">
-                <button id="reset" name="Reset">Reset Password</button>
-               
+				<input type="password" name="repassword" placeholder="Enter Re Password" required="">
+				<button id="reset" name="Reset">Reset Password</button>
+
 			</form>
-           <a href="signuplogin.php"><button >Login Page</button></a>
+			<a href="signuplogin.php"><button>Login Page</button></a>
 		</div>
 	</div>
 </body>

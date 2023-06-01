@@ -67,18 +67,19 @@ label{
 	margin-top: -8%;
 	width: 220px;
 	padding: 5px;
-	background-color: rgb(8, 163, 85);
-	color: white;
+	background: #D4EDDA;
+	color: #40754C;
 }
 .error
 {
 	margin: 0%;
 	margin-left: 60px;
-	color: white;
+	background: #F2DEDE;
+	color: #A94442;
 	margin-top: -12%;
 	padding: 5px;
 	width: 220px;
-	background: #c04343;
+	
 }
 
 

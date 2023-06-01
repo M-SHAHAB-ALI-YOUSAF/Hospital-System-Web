@@ -6,13 +6,11 @@ body{
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	/* background: url("../images/team-2.jpg") no-repeat center/ cover; */
-	/* background: linear-gradient(to bottom, #195031, #29918b, #175a46); */
-    /* background:  rgb(66, 90, 197); */
+
 }
 .main{
 	width: 350px;
-	height: 550px;
+	height: 590px;
 	background: red;
 	overflow: hidden;
 	background: linear-gradient(to bottom, #195031, #29918b, #175a46);

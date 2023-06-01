@@ -1,62 +1,62 @@
-body{
+body {
 	margin: 0;
 	padding: 0;
 	display: flex;
-	/* justify-content: center; */
-	
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	/* background: url("../images/team-2.jpg") no-repeat center/ cover; */
-	/* background: linear-gradient(to bottom, #195031, #29918b, #175a46); */
-    /* background:  rgb(66, 90, 197); */
 }
-.main{
+
+.main {
 	width: 350px;
 	height: 500px;
 	background: red;
-	margin-left: -190px;
+	margin-left: -210px;
 	overflow: hidden;
 	background: linear-gradient(to bottom, #195031, #29918b, #175a46);
-	/* background: url("../images/cartoon3.png") no-repeat center/ cover; */
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
 }
 
-li{
+li {
 	margin-top: -600px;
 	margin-left: 600px;
 	list-style-type: none;
 }
-li a{
+
+li a {
 	background-color: rgb(82, 131, 33);
 	color: white;
 	padding: 10px;
 	border-radius: 20px;
 	text-decoration: none;
 }
-li a:hover{
+
+li a:hover {
 	background-color: #573b8a;
 	color: white;
 	font-weight: bold;
 	box-shadow: 3px 3px black;
-	
+
 }
-a{
+
+a {
 	padding-left: 165px;
 	margin-top: -10px;
 	color: blueviolet;
-} 
-#chk{
+}
+
+#chk {
 	display: none;
 }
-.signup{
+
+.signup {
 	position: relative;
-	width:100%;
+	width: 100%;
 	height: 100%;
 }
 
-label{
+label {
 	color: #fff;
 	font-size: 2.3em;
 	justify-content: center;
@@ -66,17 +66,28 @@ label{
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
-.success{
+
+.success {
 	margin: 0%;
 	margin-left: 60px;
 	margin-top: -8%;
 	width: 220px;
 	padding: 5px;
-	background-color: rgb(8, 163, 85);
-	color: white;
+	background: #D4EDDA;
+	color: #40754C;
 }
-.error
-{
+
+.error {
+	margin: 0%;
+	margin-left: 60px;
+	background: #F2DEDE;
+	color: #A94442;
+	margin-top: -12%;
+	padding: 5px;
+	width: 220px;
+}
+
+.login p {
 	margin: 0%;
 	margin-left: 60px;
 	color: white;
@@ -86,17 +97,7 @@ label{
 	background: #c04343;
 }
 
-.login p
-{
-	margin: 0%;
-	margin-left: 60px;
-	color: white;
-	margin-top: -12%;
-	padding: 5px;
-	width: 220px;
-	background: #c04343;
-}
-input{
+input {
 	width: 60%;
 	height: 20px;
 	background: #e0dede;
@@ -108,7 +109,8 @@ input{
 	outline: none;
 	border-radius: 5px;
 }
-button{
+
+button {
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
@@ -125,28 +127,32 @@ button{
 	transition: .2s ease-in;
 	cursor: pointer;
 }
-button:hover{
+
+button:hover {
 	background: #6d44b8;
 }
-.login{
+
+.login {
 	height: 460px;
 	background: #eee;
 	border-radius: 60% / 10%;
 	transform: translateY(-180px);
 	transition: .8s ease-in-out;
 }
-.login label{
+
+.login label {
 	color: #573b8a;
 	transform: scale(.6);
 }
 
-#chk:checked ~ .login{
+#chk:checked~.login {
 	transform: translateY(-500px);
 }
 
-#chk:checked ~ .login label{
-	transform: scale(1);	
+#chk:checked~.login label {
+	transform: scale(1);
 }
-#chk:checked ~ .signup label{
+
+#chk:checked~.signup label {
 	transform: scale(.6);
 }

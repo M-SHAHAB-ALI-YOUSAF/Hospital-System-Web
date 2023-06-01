@@ -39,7 +39,7 @@ $result = $query->get_result();
 		<th> NAME </th>
 		<th> EMAIL </th>
 		<th> DATE </th>
-		<th> DAY </th>
+		<th> CONTACT </th>
 		<th>DELETE</th>
 
 		</tr>

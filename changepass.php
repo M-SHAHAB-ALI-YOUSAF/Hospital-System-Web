@@ -19,7 +19,7 @@ if (isset($_SESSION['loged_email'])) {
     $val2=$_SESSION['loged_email'];
 
 }
-//else if(!isset($_SESSION['loged_user'] ))
+
 else {
 	header("location:signuplogin.php");
 }
@@ -40,7 +40,6 @@ if (isset($_POST['resetpassword'])) {
 	$result = $query->get_result();
 
 	if ($result->num_rows != 0) {
-		//now check if passwords are matching or not ?
 		$row = $result->fetch_assoc();
 		$columnValue = $row['Password'];
 
@@ -66,7 +65,12 @@ if (isset($_POST['resetpassword'])) {
 	}
 ?>
 
-
+<!-- back -->
+<?php
+	if(isset($_POST['back'])){
+	header("location: index.php");
+	}
+?>
 
 <body>
 	<div class="main">
@@ -88,7 +92,9 @@ if (isset($_POST['resetpassword'])) {
 				<input type="text" name="newpassword" placeholder="Enter New Password" required>
 				<input type="text" name="repassword" placeholder="Enter Re Password"  required="">
                 <button id="reset" name="resetpassword">Change Password</button>
+				
 			</form>
+			<a href="profile.php"><button>Back</button></a>
 		</div>
 	</div>
 </body>

@@ -62,13 +62,13 @@
     color: white;
     background-color: black;
 }
-select{
+/* select{
     border: none;
     font-size: 1.3rem;
 }
 select option{
     font-size: 1.3rem;
-}
+} */
 .dropbtn {
     background-color: transparent;
     padding-left: 16px;
@@ -361,6 +361,9 @@ select{
     height: 50px;
     padding: 10px;
     border-radius: 20px;
+}
+select option{
+    font-size: small;
 }
 #Department1{
     color: #aaa0a0;

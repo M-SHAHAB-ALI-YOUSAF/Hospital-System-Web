@@ -18,7 +18,7 @@ if (isset($_SESSION['loged_email'])) {
     $val2=$_SESSION['loged_email'];
 
 }
-//else if(!isset($_SESSION['loged_user'] ))
+
 else {
 	header("location:signuplogin.php");
 }
@@ -81,6 +81,12 @@ if (isset($_POST['resetpassword'])) {
 	}
 ?>
 
+<!-- bacl -->
+<?php
+	if(isset($_POST['back'])){
+	header("location: index.php");
+	}
+?>
 
 <body>
 	<div class="main">
@@ -101,9 +107,11 @@ if (isset($_POST['resetpassword'])) {
 				<input type="text" name="usertxt" value="<?php echo isset($getname) ? $getname : ''; ?>" placeholder="User name" required="">
 				<input type="email" name="email" placeholder="Email" value="<?php echo isset($getEmail) ? $getEmail : ''; ?>" readonly>
 				<input type="password" name="pswd" placeholder="Password" readonly value="<?php echo isset($getpass) ? $getpass : ''; ?>" required="">
+				
 				<button name="edit">Edit</button>
                 <button id="reset" name="resetpassword">Change Password</button>
 				<button  name="delete" >Delete Account</button>
+				<button  name="back" >Back</button>
 			</form>
 		</div>
 	</div>

@@ -6,9 +6,6 @@ body{
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	/* background: url("../images/team-2.jpg") no-repeat center/ cover; */
-	/* background: linear-gradient(to bottom, #195031, #29918b, #175a46); */
-    /* background:  rgb(66, 90, 197); */
 }
 .main{
 	width: 400px;
@@ -16,7 +13,7 @@ body{
 	background: red;
 	overflow: hidden;
 	background: linear-gradient(to bottom, #195031, #29918b, #175a46);
-	/* background: url("../images/cartoon3.png") no-repeat center/ cover; */
+
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
 }
@@ -45,18 +42,18 @@ label{
 	margin-top: -8%;
 	width: 250px;
 	padding: 5px;
-	background-color: rgb(8, 163, 85);
-	color: white;
+	background: #D4EDDA;
+	color: #40754C;
 }
 .error
 {
 	margin: 0%;
 	margin-left: 70px;
-	color: white;
+	background: #F2DEDE;
+	color: #A94442;
 	margin-top: -12%;
 	padding: 5px;
 	width: 250px;
-	background: #c04343;
 }
 
 

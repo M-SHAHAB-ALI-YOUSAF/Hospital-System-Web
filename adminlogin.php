@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 if (isset($_GET['clicked'])) {
     header("location: adminlogin.php?error=Please Contact Admin");
-  }
+}
 ?>
 
 <body>

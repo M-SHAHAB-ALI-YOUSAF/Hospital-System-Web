@@ -52,38 +52,37 @@ if (isset($_POST['signup'])) {
 <!-- login -->
 <?php
 if (isset($_POST['loginbtn'])) {
-	$user_email = mysqli_real_escape_string($con, $_POST['email']);
-	$user_pass = mysqli_real_escape_string($con, $_POST['pswd']);
+  $user_email = mysqli_real_escape_string($con, $_POST['email']);
+  $user_pass = mysqli_real_escape_string($con, $_POST['pswd']);
 
 
-	$query = $con->prepare("SELECT * FROM login_table WHERE Email = ? and Password = ?");
-	$query->bind_param("ss", $user_email, $user_pass);
-	$query->execute();
-	$result = $query->get_result();
+  $query = $con->prepare("SELECT * FROM login_table WHERE Email = ? and Password = ?");
+  $query->bind_param("ss", $user_email, $user_pass);
+  $query->execute();
+  $result = $query->get_result();
 
-	if ($result->num_rows === 0)
-		//   header("?error=Already Registeredkkkk");
-		$nouser = "No user Found!";
-	while ($row = $result->fetch_assoc()) {
-		$ids = $row['id'];
-		$uname_db = $row['Username'];
-		$useremail_db = $row['Email'];
-		$password_db = $row['Password'];
-		$query->close();
+  if ($result->num_rows === 0)
+  header("location: signuplogin.php?errors=Wrong Credentials");
+  while ($row = $result->fetch_assoc()) {
+    $ids = $row['id'];
+    $useremail = $row['Email'];
+    $password_db = $row['Password'];
+    $query->close();
 
-		// start a session for this current logged in user.
-		session_start();
-		// starts a session with name loged_user with value from $uname_db
-		$_SESSION['loged_email'] = $useremail_db;
-		echo $_SESSION['loged_user'];
-		echo '<script language="javascript">';
-		echo 'alert("Successfully logged in ' . $_SESSION['loged_user'] . '")';
-		echo '</script>';
-		header("location: index.php");
-	}
+    // start a session for this current logged in user.
+    session_start();
+    // starts a session with name loged_user with value from $uname_db
+    $_SESSION['loged_email'] = $useremail;
+    echo $_SESSION['loged_email'];
+    echo '<script language="javascript">';
+    echo 'alert("Successfully logged in ' . $_SESSION['loged_user'] . '")';
+    echo '</script>';
+    header("location: index.php");
+  }
 
 }
 ?>
+
 
 
 
@@ -124,7 +123,13 @@ if (isset($_POST['loginbtn'])) {
 		<div class="login">
 			<form action="signuplogin.php" method="post">
 				<label for="chk" id="loginpart" aria-hidden="true">Login</label>
-				<!-- <p class="errors"><?php echo isset($nouser) ?: "" ?> </p> -->
+				<?php
+				if (isset($_GET['errors'])) { ?>
+					<p class="error">
+						<?php echo $_GET['errors']; ?>
+					</p>
+				<?php }
+				?>
 				<input type="email" name="email" placeholder="Email" required="">
 				<input type="password" name="pswd" placeholder="Password" required="">
 				<a href="forget.php">Forget Password?</a>
